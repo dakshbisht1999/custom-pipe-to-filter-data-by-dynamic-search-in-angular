@@ -1,0 +1,14 @@
+<div>
+  <b>Search by:</b> <br>
+  Order ID <input type="radio" name="filterType" value="orderId" checked (change)="changeFilterType($event)"> <br>
+  Shipper Name: <input type="radio" name="filterType" value="shipperName" (change)="changeFilterType($event)"> <br>
+  Consignee Name: <input type="radio" name="filterType" value="consigneeName" (change)="changeFilterType($event)"> <br>
+  Carrier: <input type="radio" name="filterType" value="carrier" (change)="changeFilterType($event)"> <br>
+  <input [(ngModel)]="searchVal" [placeholder]="'Search by ' + filterType"> <br>
+
+  <ul>
+    <li *ngFor="let data of listData | filter: searchVal: filterType">
+      {{data.orderId}} | {{data.shipperName}} | {{data.consigneeName}} | {{data.carrier}}
+    </li>
+  </ul>
+</div>
